@@ -1,4 +1,4 @@
-This project includes data from (https://github.com/ahstat/topography) licensed under the Apache License 2.0.
+This tool lets you plot 2D and 3D visualizations of different planets with different volumes of water, to see what their surface would look like.
 
 Latitude, Longitude, Height (LLH) data for Venus, Earth, and Mars.
 
@@ -12,3 +12,5 @@ print(f"Ratio to Earth's oceans: ~{ratio:.3f}×")
 
 This represents the volume of water needed to cover x% of the surface, and how much that is relative to Earth's oceans. This computation is an estimate based on each point's surface area and "depth". The surface area is scaled with latitude (higher latitude bins have a lower surface area than those at the equator).
 
+This project includes data from (https://github.com/ahstat/topography) licensed under the Apache License 2.0.
+This project was assisted by LLM code generation.
