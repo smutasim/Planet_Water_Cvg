@@ -48,10 +48,17 @@ colorscale += [
 # Land colorscale: from dark green to brown to white (above sea level)
 def scale_land_pos(pos):
     return breakpoint + pos * (1 - breakpoint)
-colorscale += [
-    [scale_land_pos(0.0), 'rgb(36, 94, 43)'],   # dark green
-    [scale_land_pos(0.4), 'rgb(160, 120, 90)'], # brown
-    [scale_land_pos(1.0), 'rgb(255, 255, 255)'] # white
+
+# Normalize helper
+def norm(val):
+    return (val - zmin) / (zmax - zmin)
+
+colorscale = [
+    [0.0, 'rgb(0, 70, 140)'],               # dark blue deep water
+    [breakpoint, 'rgb(173, 216, 230)'],     # light blue sea level
+    [breakpoint + 1e-6, 'rgb(36, 94, 43)'],   # dark green just above sea level
+    [norm(zmax) * 0.4 + breakpoint * 0.6, 'rgb(160, 120, 90)'],  # brown mid land
+    [1.0, 'rgb(255, 255, 255)']             # white peak
 ]
 
 # Compute water volume
